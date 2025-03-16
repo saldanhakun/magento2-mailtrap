@@ -1,21 +1,28 @@
 {
-  "name": "codepeak/magento2-mailtrap",
-  "description": "Enable mail testing through Mailtrap.io",
+  "name": "saldanhakun/magento2-mailtrap",
+  "description": "Enable mail testing through Mailtrap.io in Magento CE 2.4+",
   "license": "proprietary",
   "authors": [
     {
+      "email": "saldanha@uttara.com.br",
+      "name": "Marcelo Saldanha, Uttara E-commerce"
+    },
+    {
       "email": "robert@codepeak.se",
-      "name": "Robert Lord, Codepeak AB"
+      "name": "Robert Lord, Codepeak AB [original]"
     }
   ],
   "minimum-stability": "dev",
-  "require": {},
+  "require": {
+    "php": "^8.0",
+    "magento/product-community-edition": "^2.4"
+  },
   "autoload": {
     "files": [
       "registration.php"
     ],
     "psr-4": {
-      "Codepeak\\Mailtrap\\": ""
+      "Saldanhakun\\Mailtrap\\": ""
     }
   }
 }

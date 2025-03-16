@@ -1,13 +1,13 @@
 <?xml version="1.0" ?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <tab id="codepeak" sortOrder="9999" translate="label">
-            <label>Codepeak</label>
+        <tab id="uttara" sortOrder="9999" translate="label">
+            <label>Uttara E-commerce</label>
         </tab>
         <section id="mailtrap" showInDefault="1" showInStore="0" showInWebsite="0" sortOrder="10" translate="label">
             <label>Mailtrap</label>
-            <tab>codepeak</tab>
-            <resource>Codepeak_Mailtrap::config_codepeak_mailtrap</resource>
+            <tab>uttara</tab>
+            <resource>Uttara_Mailtrap::config_uttara_mailtrap</resource>
             <group id="general" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
                 <label>General</label>
                 <field id="enabled" showInDefault="1" showInStore="0" showInWebsite="0" sortOrder="10" translate="label" type="select">

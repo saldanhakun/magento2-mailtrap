@@ -1,6 +1,6 @@
 <?php
 
-namespace Codepeak\Mailtrap\Model;
+namespace Saldanhakun\Mailtrap\Model;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\Mail\MessageInterface;
@@ -8,10 +8,11 @@ use Magento\Framework\Mail\MessageInterface;
 /**
  * Class Transport
  *
- * @package  Codepeak\Mailtrap\Model
+ * @package  Saldanhakun\Mailtrap\Model
  * @license  MIT License https://opensource.org/licenses/MIT
+ * @author   Marcelo Saldanha, Uttara E-commerce <saldanha@uttara.com.br>
  * @author   Robert Lord, Codepeak AB <robert@codepeak.se>
- * @link     https://codepeak.se
+ * @link     https://www.uttara.com.br/
  */
 class Transport extends \Zend_Mail_Transport_Smtp implements \Magento\Framework\Mail\TransportInterface
 {
