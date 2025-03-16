@@ -4,6 +4,8 @@ namespace Saldanhakun\Mailtrap\Model;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\Mail\MessageInterface;
+use Laminas\Mail\Transport\Smtp;
+use Laminas\Mail\Message;
 
 /**
  * Class Transport
@@ -14,7 +16,7 @@ use Magento\Framework\Mail\MessageInterface;
  * @author   Robert Lord, Codepeak AB <robert@codepeak.se>
  * @link     https://www.uttara.com.br/
  */
-class Transport extends \Zend_Mail_Transport_Smtp implements \Magento\Framework\Mail\TransportInterface
+class Transport extends Smtp implements \Magento\Framework\Mail\TransportInterface
 {
     /**
      * @var \Magento\Framework\Mail\MessageInterface
@@ -33,9 +35,9 @@ class Transport extends \Zend_Mail_Transport_Smtp implements \Magento\Framework\
     {
         // Make sure we're enabled
         if ($scopeConfig->getValue('mailtrap/general/enabled') == '1') {
-            // Assure message is an instance of Zend_Mail
-            if (!$message instanceof \Zend_Mail) {
-                throw new \InvalidArgumentException('The message should be an instance of \Zend_Mail');
+            // Assure message is an instance of Laminas Message
+            if (!$message instanceof Message) {
+                throw new \InvalidArgumentException('The message should be an instance of '.Message::class);
             }
 
             // Setup SMTP details
