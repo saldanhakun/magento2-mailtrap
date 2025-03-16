@@ -1,26 +1,54 @@
 <?xml version="1.0" ?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <tab id="uttara" sortOrder="9999" translate="label">
-            <label>Uttara E-commerce</label>
-        </tab>
-        <section id="mailtrap" showInDefault="1" showInStore="0" showInWebsite="0" sortOrder="10" translate="label">
-            <label>Mailtrap</label>
-            <tab>uttara</tab>
-            <resource>Uttara_Mailtrap::config_uttara_mailtrap</resource>
-            <group id="general" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
-                <label>General</label>
-                <field id="enabled" showInDefault="1" showInStore="0" showInWebsite="0" sortOrder="10" translate="label" type="select">
-                    <label>Enabled</label>
-                    <comment/>
+        <section id="system" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+            <resource>Saldanhakun_Mailtrap::saldanhakun_mailtrap</resource>
+            <group id="mailtrap" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+                <label>Mailing jail with Mailtrap.io</label>
+
+		<field id="active" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="username" showInDefault="1" showInStore="0" showInWebsite="0" sortOrder="20" translate="label" type="text">
+                <field id="auth" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Authentication method</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Smtpauth</source_model>
+                    <comment>Default: login</comment>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                </field>
+                <field id="smtphost" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>SMTP Host</label>
+                    <comment>The mailtrap server name (may differ according to your plan).</comment>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                </field>
+                <field id="smtpport" translate="label" type="text" sortOrder="17" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>SMTP Port</label>
+                    <validate>validate-number</validate>
+                    <frontend_class>validate-number</frontend_class>
+                    <comment>Use 25 (obsolete), 465 (ssl), 587 (tls) or 2525.</comment>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                </field>
+                <field id="username" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Username</label>
+                    <comment>Find your SMTP Credentials on the Integration tab of your mailbox.</comment>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
                 </field>
-                <field id="password" showInDefault="1" showInStore="0" showInWebsite="0" sortOrder="30" translate="label" type="text">
+                <field id="password" translate="label" type="obscure" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Password</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
                 </field>
+
             </group>
         </section>
     </system>
