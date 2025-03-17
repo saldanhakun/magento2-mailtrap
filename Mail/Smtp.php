@@ -198,10 +198,11 @@ class Smtp
         $options   = new SmtpOptions([
             'name' => "mailtrap",
             'host' => $dataHelper->getConfigSmtpHost(),
-            'port' => $dataHelper->getConfigSmtpPort(),
+	    'port' => $dataHelper->getConfigSmtpPort(),
+	    'ssl' => 'STARTTLS',
         ]);
 
-        $connectionConfig = [];
+	$connectionConfig = [];
 
         $auth = strtolower($dataHelper->getConfigAuth());
         if ($auth != 'none') {
@@ -209,13 +210,8 @@ class Smtp
 
             $connectionConfig = [
                 'username' => $dataHelper->getConfigUsername(),
-                'password' => $dataHelper->getConfigPassword()
+		'password' => $dataHelper->getConfigPassword(),
             ];
-        }
-
-        $ssl = $dataHelper->getConfigSsl();
-        if ($ssl != 'none') {
-            $connectionConfig['ssl'] = $ssl;
         }
 
         if (!empty($connectionConfig)) {
