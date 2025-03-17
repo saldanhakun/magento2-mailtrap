@@ -210,7 +210,7 @@ class Smtp
             $connectionConfig = [
                 'username' => $dataHelper->getConfigUsername(),
 		'password' => $dataHelper->getConfigPassword(),
-		'ssl' => 'STARTTLS',
+		'ssl' => 'tls',
             ];
         }
 
