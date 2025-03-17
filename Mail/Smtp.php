@@ -199,7 +199,6 @@ class Smtp
             'name' => "mailtrap",
             'host' => $dataHelper->getConfigSmtpHost(),
 	    'port' => $dataHelper->getConfigSmtpPort(),
-	    'ssl' => 'STARTTLS',
         ]);
 
 	$connectionConfig = [];
@@ -211,6 +210,7 @@ class Smtp
             $connectionConfig = [
                 'username' => $dataHelper->getConfigUsername(),
 		'password' => $dataHelper->getConfigPassword(),
+		'ssl' => 'STARTTLS',
             ];
         }
 
